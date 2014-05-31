@@ -1,6 +1,10 @@
 Blinderino::Application.routes.draw do
 
-  resources :webcam
+  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
+
+  resources :webcam do
+    get 'compare', :on => :collection
+  end
   root to: 'webcam#index'
 
   # The priority is based upon order of creation:

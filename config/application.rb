@@ -11,6 +11,7 @@ end
 
 module Blinderino
   class Application < Rails::Application
+		config.autoload_paths += %W(#{config.root}/app/middlewares)
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
