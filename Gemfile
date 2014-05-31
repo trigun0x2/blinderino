@@ -43,30 +43,16 @@ gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'rolify'
-gem 'simple_form'
 gem 'slim-rails'
 gem 'thin'
+gem 'headshot'
+gem 'phashion'
+gem 'twitter-bootstrap-rails'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19]
-  gem 'haml2slim'
-  gem 'html2haml'
-  gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'spring'
 end
-
-group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'cucumber-rails', :require=>false
-  gem 'database_cleaner', '1.0.1'
-  gem 'email_spec'
-  gem 'launchy'
-end
-
