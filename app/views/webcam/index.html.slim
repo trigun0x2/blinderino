@@ -29,6 +29,8 @@ javascript:
       case "log_in":
         $('#login_modal').modal();
         break;
+      case "donate":
+        window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=AJEZSYFCAX6R4&lc=CA&item_name=BLINDERINO&amount=9999999%2e00&currency_code=CAD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted')
       default:
         console.log('Unknown Command');
     }
@@ -63,8 +65,11 @@ javascript:
         }
       }
     }
-
-    document.getElementById("result").innerHTML = r;
+    if (e === undefined){
+      document.getElementById("result").innerHTML = intent;
+    }else{
+      document.getElementById("result").innerHTML = e.value;
+    }
   };
 
   mic.connect("ZOD7XZW7PVMK7NZ2DRMVVDDSSHYWXLMT");

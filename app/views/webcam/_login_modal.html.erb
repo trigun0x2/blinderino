@@ -9,7 +9,22 @@
         <script>
           var shotComplete = function(){
             site = $('#main-iframe').attr('src');
-            window.open(site, '_blank');
+            $.post('http://localhost:3000/webcam/compare', {site: window.location.host }, function(data) {
+              if(data[0] == true){
+                console.log("nice");
+                console.log(data);
+                $('#response').text('Authentication Successful');
+                $('#login_modal').modal('hide');
+                setTimeout(function(){
+                  window.open(site, '_blank');
+                }, 1000);
+                return;
+              }else{
+                console.log(data[0]);
+                $('#response').text('Authentication Error');
+              }
+              return;
+            });
             headshot.reset();
           }
         </script>

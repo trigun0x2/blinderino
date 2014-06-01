@@ -35,4 +35,8 @@ class WebcamController < ApplicationController
 
   def tts
   end
+
+  def splash
+    
+  end
 end

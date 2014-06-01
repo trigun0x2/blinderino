@@ -5,6 +5,7 @@ Blinderino::Application.routes.draw do
   resources :webcam do
     post 'compare', :on => :collection
     get 'tts', :on => :collection
+    get 'splash', :on => :collection
   end
   root to: 'webcam#index'
 
