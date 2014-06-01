@@ -1,15 +1,18 @@
 // Place all the styles related to the webcams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,900,300);
 html, body{
   width: 100%;
   height: 100%;
 }
 
 #top-bar{
-  width: 100%;
-  height: 10%;
+  min-height: 50px;
+  background-color: #333;
+  color: white;
+  padding: 25px 20px 0 20px;
+  border-bottom: 1px grey solid;
 }
 
 #main-iframe{
@@ -17,11 +20,18 @@ html, body{
   height: 90%;
 }
 #header{
+  display: block;
+  width: 100%;
   float: left;
+  font-family: 'Roboto', serif;
+  font-weight: 900;
+  font-size: 30px;
 }
-.right-cont{
-  float: right;
-}
-#microphone{
-  float: right;
+#notifications{
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  background-color: black;
+  font-family: 'Roboto', serif;
+  font-weight: 300;
 }

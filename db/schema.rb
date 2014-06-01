@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140601063938) do
+ActiveRecord::Schema.define(:version => 20140601133747) do
 
   create_table "headshot_photos", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20140601063938) do
     t.string   "password"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "login_url"
   end
 
   create_table "webcams", :force => true do |t|

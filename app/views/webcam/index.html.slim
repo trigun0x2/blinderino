@@ -1,11 +1,11 @@
 = render 'login_modal'
 #top-bar
-  div#header tes
-  div.right-cont
+  div#header BLINDERINO
+  div#notifications
     div#result
     div#info
   div#microphone
-iframe src='http://www.bing.com' id="main-iframe" name="main-frame"
+iframe src='http://www.bing.com' id="main-iframe" name="main-frame" frameBorder="0"
 
 javascript:
   var mic = new Wit.Microphone(document.getElementById("microphone"));
@@ -19,6 +19,7 @@ javascript:
     switch(intent){
       case "go_to_link":
         console.log(value);
+        if (value == undefined){break;}
         $('#main-iframe').attr('src', 'http://' + value.replace(/ /g,''));
         break;
       case "read":
@@ -26,7 +27,6 @@ javascript:
         pCount++;
         break;
       case "log_in":
-        $("a:contains('Sign In')").click();
         $('#login_modal').modal();
         break;
       default:

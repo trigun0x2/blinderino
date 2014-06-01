@@ -3,28 +3,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Gesture Login</h4>
       </div>
       <div class="modal-body">
         <script>
           var shotComplete = function(){
             site = $('#main-iframe').attr('src');
-
-            $.post('http://localhost:3000/webcam/compare', {param: site}, function(data) {
-              if(data['status'] == true){
-                console.log("nice");
-                $('#login_modal').modal('hide');
-              }else{
-                console.log("nope");
-              }
-              return;
-            });
+            window.open(site, '_blank');
             headshot.reset();
           }
         </script>
         <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path, on_complete: "shotComplete") %>
         <%= headshot_camera %>
-        <%= headshot_snap_button('Shoot') %>
+        <%= headshot_snap_button('Login') %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

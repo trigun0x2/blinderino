@@ -27,6 +27,8 @@ class WebcamController < ApplicationController
     else
       login = nil
     end
+
+    puts params
     render json: [@dupe, login]
 
   end
