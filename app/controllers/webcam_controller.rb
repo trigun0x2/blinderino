@@ -22,6 +22,13 @@ class WebcamController < ApplicationController
     img2 = Phashion::Image.new(file2)
     @dupe = img1.duplicate?(img2, threshold: 15)
 
+    if @dupe == true
+      login = Login.find_by_site(params['site'])
+    else
+      login = nil
+    end
+    render json: [@dupe, login]
+
   end
 
   def tts

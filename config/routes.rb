@@ -3,7 +3,7 @@ Blinderino::Application.routes.draw do
   post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
 
   resources :webcam do
-    get 'compare', :on => :collection
+    post 'compare', :on => :collection
     get 'tts', :on => :collection
   end
   root to: 'webcam#index'

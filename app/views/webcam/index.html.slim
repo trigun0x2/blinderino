@@ -1,3 +1,4 @@
+= render 'login_modal'
 #top-bar
   div#header tes
   div.right-cont
@@ -17,14 +18,16 @@ javascript:
   var blindAction = function(intent, value){
     switch(intent){
       case "go_to_link":
-        $('#main-iframe').attr('src', 'http://' + value);
+        console.log(value);
+        $('#main-iframe').attr('src', 'http://' + value.replace(/ /g,''));
         break;
       case "read":
         speak(paragraphs[pCount]);
         pCount++;
         break;
       case "log_in":
-        console.log('login');
+        $("a:contains('Sign In')").click();
+        $('#login_modal').modal();
         break;
       default:
         console.log('Unknown Command');
