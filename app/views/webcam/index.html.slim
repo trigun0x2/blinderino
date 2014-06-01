@@ -1,1 +1,77 @@
-h1 tes
+#top-bar
+  div#header tes
+  div.right-cont
+    div#result
+    div#info
+  div#microphone
+iframe src='http://www.bing.com' id="main-iframe" name="main-frame"
+
+javascript:
+  var mic = new Wit.Microphone(document.getElementById("microphone"));
+  var pCount = 0;
+  var paragraphs = $('p')
+  var info = function (msg) {
+    document.getElementById("info").innerHTML = msg;
+  };
+
+  var blindAction = function(intent, value){
+    switch(intent){
+      case "go_to_link":
+        $('#main-iframe').attr('src', 'http://' + value);
+        break;
+      case "read":
+        speak(paragraphs[pCount]);
+        pCount++;
+        break;
+      case "log_in":
+        console.log('login');
+        break;
+      default:
+        console.log('Unknown Command');
+    }
+  }
+
+  mic.onready = function () {
+    info("Microphone is ready to record");
+  };
+  mic.onaudiostart = function () {
+    info("Recording started");
+  };
+  mic.onaudioend = function () {
+    info("Recording stopped, processing started");
+  };
+  mic.onerror = function (err) {
+    info("Error: " + err);
+  };
+  mic.onresult = function (intent, entities) {
+    var r = kv("intent", intent);
+    if (jQuery.isEmptyObject(entities)){
+      blindAction(intent);
+    }else{
+      blindAction(intent, entities.url.value);
+    }
+    for (var k in entities) {
+      var e = entities[k];
+      if (!(e instanceof Array)) {
+        r += kv(k, e.value);
+      } else {
+        for (var i = 0; i < e.length; i++) {
+          r += kv(k, e[i].value);
+        }
+      }
+    }
+
+    document.getElementById("result").innerHTML = r;
+  };
+
+  mic.connect("ZOD7XZW7PVMK7NZ2DRMVVDDSSHYWXLMT");
+  // mic.start();
+  // mic.stop();
+
+  function kv (k, v) {
+    if (toString.call(v) !== "[object String]") {
+      v = JSON.stringify(v);
+      console.log(v);
+    }
+    return k + "=" + v + "\n";
+  }

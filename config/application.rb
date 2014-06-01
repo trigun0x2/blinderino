@@ -12,6 +12,7 @@ end
 module Blinderino
   class Application < Rails::Application
 		config.autoload_paths += %W(#{config.root}/app/middlewares)
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|

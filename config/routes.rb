@@ -4,6 +4,7 @@ Blinderino::Application.routes.draw do
 
   resources :webcam do
     get 'compare', :on => :collection
+    get 'tts', :on => :collection
   end
   root to: 'webcam#index'
 

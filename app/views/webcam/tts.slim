@@ -1,0 +1,10 @@
+h2 tts
+button onclick="talk()" talk
+
+javascript:
+  var tts = new GoogleTTS('en');
+
+  var talk = function(){
+    console.log("ads");
+    tts.play('hello');
+  }

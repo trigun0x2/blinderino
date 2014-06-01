@@ -23,4 +23,7 @@ class WebcamController < ApplicationController
     @dupe = img1.duplicate?(img2, threshold: 15)
 
   end
+
+  def tts
+  end
 end
