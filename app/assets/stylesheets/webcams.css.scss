@@ -13,6 +13,7 @@ html, body{
   color: white;
   padding: 25px 20px 0 20px;
   border-bottom: 1px grey solid;
+  text-align: center;
 }
 
 #main-iframe{
@@ -20,16 +21,17 @@ html, body{
   height: 90%;
 }
 #header{
-  display: block;
-  width: 100%;
+  display: inline-block;
+  margin: 2px auto -5px;
   float: left;
   font-family: 'Roboto', serif;
   font-weight: 900;
   font-size: 30px;
 }
 #notifications{
+  display: inline-block;
   width: 500px;
-  margin: auto;
+  margin: -5px 140px 0 0;
   text-align: center;
   font-family: 'Roboto', serif;
   font-weight: 300;
